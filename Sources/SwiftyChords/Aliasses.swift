@@ -20,8 +20,8 @@ public typealias SWIFTImage = NSImage
 /// Alias for NSColor
 public typealias SWIFTColor = NSColor
 
-let primaryColor = NSColor.labelColor
-let backgroundColor = NSColor.windowBackgroundColor
+public var primaryColor = NSColor.labelColor
+public var backgroundColor = NSColor.windowBackgroundColor
 
 /// Alias for NSFont
 public typealias SWIFTFont = NSFont
@@ -37,7 +37,7 @@ public typealias SWIFTColor = UIColor
 /// Alias for UIFont
 public typealias SWIFTFont = UIFont
 
-let primaryColor = UIColor.label
-let backgroundColor = UIColor.systemBackground
+public var primaryColor = UIColor.label
+public var backgroundColor = UIColor.systemBackground
 
 #endif
