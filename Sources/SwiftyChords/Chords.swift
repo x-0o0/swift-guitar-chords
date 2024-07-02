@@ -330,17 +330,17 @@ public struct Chords {
         /// Display modus of the chord name
         public enum Display {
             /// Key display modus
-            public enum Key {
-                case raw
-                case accessible
-                case symbol
+            public enum Key: String, CaseIterable {
+                case raw = "raw"
+                case accessible = "accessible"
+                case symbol = "symbol"
             }
             /// Suffix display modus
-            public enum Suffix {
-                case raw
-                case short
-                case symbolized
-                case altSymbol
+            public enum Suffix: String, CaseIterable {
+                case raw = "raw"
+                case short = "short"
+                case symbolized = "symbolized"
+                case altSymbol = "alternative symbol"
             }
         }
     }
