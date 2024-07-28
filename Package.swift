@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftyChords",
-    platforms: [.iOS(.v13), .macOS(.v11)],
+    platforms: [.iOS(.v16), .macOS(.v13)],
     products: [
         .library(
             name: "SwiftyChords",
