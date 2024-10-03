@@ -34,7 +34,7 @@ var body: some View {
 ## Used Opened Sources 
 
 ### Swifty Chords
-The below files uses [Swifty Chords](https://github.com/BeauNouvelle/SwiftyGuitarChords) sources.
+The below files use [Swifty Chords](https://github.com/BeauNouvelle/SwiftyGuitarChords) sources.
 - [Chord.CAShapeLayer.swift](/Sources/GuitarChords/UI/Chord.CAShapeLayer.swift)
 - [LineConfig.swift](/Sources/GuitarChords/UI/LineConfig.swift)
 - [NSAttributedString.Extensions](/Sources/GuitarChords/Extensions/NSAttributedString.Extensions)
