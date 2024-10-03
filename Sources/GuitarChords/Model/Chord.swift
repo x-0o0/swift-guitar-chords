@@ -1,7 +1,22 @@
+/**
+ - Note: See the `License.txt` file for this licensing information.
+ */
+
 import Foundation
 
 public struct Chord: Identifiable, Equatable {
+    /// 코드 이름. 예) "C", "Am"
     public let name: String
+    /// 운지법.
+    /// ```swift
+    /// "2320xx"
+    /// // 1번째 줄: 2번 프렛
+    /// // 2번째 줄: 3번 프렛
+    /// // 3번째 줄: 2번 프렛
+    /// // 4번째 줄: 누르지 않음
+    /// // 5번째 줄: 뮤트
+    /// // 6번째 줄: 뮤트
+    /// ```
     public let fingering: String
     
     public var id: String { fingering }
