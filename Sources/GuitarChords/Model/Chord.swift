@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Chord: Identifiable, Equatable {
+public struct Chord: Identifiable, Codable, Equatable {
     /// 코드 이름. 예) "C", "Am"
     public let name: String
     /// 운지법.
@@ -17,12 +17,12 @@ public struct Chord: Identifiable, Equatable {
     /// // 5번째 줄: 뮤트
     /// // 6번째 줄: 뮤트
     /// ```
-    public let fingering: String
+    public let fretString: String
     
-    public var id: String { fingering }
+    public var id: String { fretString }
 
     public var frets: [Int] {
-        fingering.map { Int(String($0)) ?? -1 }
+        fretString.map { Int(String($0)) ?? -1 }
     }
     
     public var maxFret: Int {
@@ -44,8 +44,34 @@ public struct Chord: Identifiable, Equatable {
         : fretDifference
     }
     
-    public init(name: String, fingering: String) {
+    public var rawText: String {
+        "{\(fretString)-\(name)}"
+    }
+    
+    public init(name: String, fretString: String) {
         self.name = name
-        self.fingering = fingering
+        self.fretString = fretString
+    }
+    
+    public init(rawText: String) throws {
+        guard rawText.isWrappedByBraces else {
+            throw NSError(domain: "INVALID_RAW_TEXT", code: 400)
+        }
+        let trimmedString = rawText.trimmingCharacters(in: CharacterSet(charactersIn: "{}"))
+        let components = trimmedString.components(separatedBy: "-")
+        guard components.count == 2 else {
+            throw NSError(domain: "INVALID_RAW_TEXT", code: 400)
+        }
+        guard components[0].count == 6 else {
+            throw NSError(domain: "INVALID_FRESTS_COUNT", code: 400)
+        }
+        self.fretString = components[0]
+        self.name = components[1]
+    }
+}
+
+extension String {
+    var isWrappedByBraces: Bool {
+        self.hasPrefix("{") && self.hasSuffix("}")
     }
 }

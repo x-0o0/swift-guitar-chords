@@ -1,15 +1,57 @@
 import Testing
+import Foundation
 import GuitarChords
 
 @Suite("Chord 모델 테스트")
 struct ChordTests {
-    let d_chord = Chord(name: "D", fingering: "2320xx")
-    let e_chord = Chord(name: "E", fingering: "009970")
+    let d_chord = Chord(name: "D", fretString: "2320xx")
+    let e_chord = Chord(name: "E", fretString: "009970")
+    
+    @Test("디코딩 테스트")
+    func decode() throws {
+        let jsonString = """
+        {
+          "name": "C",
+          "fretString": "010230"
+        }
+        """
+        let decoded = try JSONDecoder().decode(Chord.self, from: jsonString.data(using: .utf8)!)
+        #expect(decoded.name == "C")
+        #expect(decoded.fretString == "010230")
+    }
+    
+    @Test("Raw text 생성자 테스트")
+    func initializeWithRawText() throws {
+        // 1. valid
+        let chord1 = try #require(try Chord(rawText: "{010230-C}"))
+        #expect(chord1.fretString == "010230")
+        #expect(chord1.name == "C")
+        
+        let chord2 = try #require(try Chord(rawText: "{01003x-my_own_chord}"))
+        #expect(chord2.fretString == "01003x")
+        #expect(chord2.name == "my_own_chord")
+        
+        let chord3 = try #require(try Chord(rawText: "{01003x-}"))
+        #expect(chord3.fretString == "01003x")
+        #expect(chord3.name.isEmpty)
+        
+        // 2. no braces
+        let invalidRawTextError = NSError(domain: "INVALID_RAW_TEXT", code: 400)
+        #expect(throws: invalidRawTextError) {
+            let _ = try Chord(rawText: "010230-C")
+        }
+        
+        // 3. wrong frets
+        let invalidFretsCountError = NSError(domain: "INVALID_FRESTS_COUNT", code: 400)
+        #expect(throws: invalidFretsCountError) {
+            let _ = try Chord(rawText: "{01023-wrongfrets}")
+        }
+    }
     
     @Test("고유성 테스트")
     func identifiable() throws {
-        let otherEChord = Chord(name: "E", fingering: "001220")
-        let unknown = Chord(name: "", fingering: "009970")
+        let otherEChord = Chord(name: "E", fretString: "001220")
+        let unknown = Chord(name: "", fretString: "009970")
         #expect(e_chord.name == otherEChord.name)
         #expect(e_chord.id != otherEChord.id)
         #expect(e_chord.id == unknown.id)
