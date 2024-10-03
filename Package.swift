@@ -16,7 +16,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/swiftlang/swift-format", branch: "main"),
+//        .package(url: "https://github.com/swiftlang/swift-format", branch: "main"),
     ],
     targets: [
         .target(
