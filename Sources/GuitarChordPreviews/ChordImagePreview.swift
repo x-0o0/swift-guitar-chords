@@ -1,3 +1,7 @@
+/**
+ - Note: See the `License.txt` file for this licensing information.
+ */
+
 import SwiftUI
 import GuitarChords
 

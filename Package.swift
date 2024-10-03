@@ -13,7 +13,10 @@ let package = Package(
         .library(
             name: "GuitarChordPreviews",
             targets: ["GuitarChordPreviews"]
-        )
+        ),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/swiftlang/swift-format", branch: "main"),
     ],
     targets: [
         .target(
