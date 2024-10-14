@@ -9,7 +9,7 @@ public struct Chord: Identifiable, Codable, Equatable, Hashable {
     public let name: String
     /// 운지법.
     /// ```swift
-    /// "2320xx"
+    /// "2_3_2_0_x_x"
     /// // 1번째 줄: 2번 프렛
     /// // 2번째 줄: 3번 프렛
     /// // 3번째 줄: 2번 프렛
@@ -22,7 +22,9 @@ public struct Chord: Identifiable, Codable, Equatable, Hashable {
     public var id: String { fretString }
 
     public var frets: [Int] {
-        fretString.map { Int(String($0)) ?? -1 }
+        fretString
+            .components(separatedBy: "_")
+            .map { Int($0) ?? -1 }
     }
     
     public var maxFret: Int {
@@ -62,7 +64,8 @@ public struct Chord: Identifiable, Codable, Equatable, Hashable {
         guard components.count == 2 else {
             throw NSError(domain: "INVALID_RAW_TEXT", code: 400)
         }
-        guard components[0].count == 6 else {
+        let frets = components[0].components(separatedBy: "_")
+        guard frets.count == 6 else {
             throw NSError(domain: "INVALID_FRESTS_COUNT", code: 400)
         }
         self.fretString = components[0]
