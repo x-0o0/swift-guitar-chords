@@ -35,29 +35,29 @@ struct ChordImagePreview: View {
 
 #Preview("다크 모드") {
     HStack {
-        ChordImagePreview(chord: Chord(name: "C", fretString: "010230"), isDarkMode: true)
+        ChordImagePreview(chord: Chord(name: "C", fretString: "0_1_0_2_3_0"), isDarkMode: true)
         
-        ChordImagePreview(chord: Chord(name: "C", fretString: "35553x"), isDarkMode: true)
+        ChordImagePreview(chord: Chord(name: "C", fretString: "3_5_5_5_3_x"), isDarkMode: true)
     }
     .preferredColorScheme(.dark)
 }
 
 #Preview("C 코드") {
     HStack {
-        ChordImagePreview(chord: Chord(name: "C", fretString: "010230"))
+        ChordImagePreview(chord: Chord(name: "C", fretString: "0_1_0_2_3_0"))
         
-        ChordImagePreview(chord: Chord(name: "C", fretString: "35553x"))
+        ChordImagePreview(chord: Chord(name: "C", fretString: "8_8_9_10_10_8"))
     }
 }
 
 #Preview("G 코드") {
-    ChordImagePreview(chord: Chord(name: "G", fretString: "330023"))
-}
-
-#Preview("G 코드") {
-    ChordImagePreview(chord: Chord(name: "Am", fretString: "555775"))
+    ChordImagePreview(chord: Chord(name: "G", fretString: "3_3_0_0_2_3"))
 }
 
 #Preview("Am 코드") {
-    ChordImagePreview(chord: Chord(name: "F", fretString: "112331"))
+    ChordImagePreview(chord: Chord(name: "Am", fretString: "5_5_5_7_7_5"))
+}
+
+#Preview("F 코드") {
+    ChordImagePreview(chord: Chord(name: "F", fretString: "1_1_2_3_3_1"))
 }
