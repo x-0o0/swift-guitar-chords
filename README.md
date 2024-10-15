@@ -19,7 +19,7 @@ import GuitarChords
 ```
 
 ```swift
-let c코드 = Chord(name: "C", fingering: "010230")
+let c코드 = Chord(name: "C", fingering: "0_1_0_2_3_0")
 
 var body: some View {
   VStack {
