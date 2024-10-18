@@ -31,6 +31,28 @@ var body: some View {
 }
 ```
 
+## Features
+
+### AttributedString
+
+`"{0_1_0_2_3_0-C}"` can be converted to `"C"` with url `"guitarchord://0_1_0_2_3_0"`.
+
+```swift
+let songMemo = """
+{0_1_0_2_3_0-C}잔잔한 당신{0_0_1_2_2_0-E}은 {1_1_2_3_3_1-F}이 맘을 넘치{0_1_0_2_3_0-C}게 하지 않을거{0_1_0_2_0_0-Am7}야
+그대로{1_1_2_3_3_1-F}도 편히 {2_1_2_0_x_x-D7}안길 수가 있으니{1_0_0_0_2_3-G7}까
+"""
+
+let convertedText = songMemo.convertSongMemo()
+
+print(convertedText)
+// """
+// C잔잔한 당신E은 F이 맘을 넘치C게 하지 않을거Am7야
+// 그대로F도 편히 D7안길 수가 있으니G7까
+// """
+
+```
+
 ## Used Opened Sources 
 
 ### Swifty Chords
