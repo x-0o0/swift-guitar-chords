@@ -28,12 +28,12 @@ public final class GuitarChord {
     }
     
     // MARK: - 커스텀 코드 관리
-    public static func registerCustomScope(named scopeName: String) {
-        service.registerCustomScope(named: scopeName)
+    public static func registerCustomScope(named scopeName: String) throws {
+        try service.registerCustomScope(named: scopeName)
     }
     
-    public static func unregisterCustomScope(named scopeName: String) {
-        service.unregisterCustomScope(named: scopeName)
+    public static func unregisterCustomScope(named scopeName: String) throws {
+        try service.unregisterCustomScope(named: scopeName)
     }
     
     public static func addChord(rawText: String, to scope: GuitarChord.Scope) throws {

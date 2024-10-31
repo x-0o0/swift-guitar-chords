@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Chord: Identifiable, Codable, Equatable, Hashable {
+public struct Chord: Identifiable, Codable, Equatable, Hashable, Sendable {
     /// 코드 이름. 예) "C", "Am"
     public let name: String
     /// 운지법.
