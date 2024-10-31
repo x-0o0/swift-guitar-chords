@@ -16,7 +16,7 @@ struct ChordRegexPreview: View {
     
     var body: some View {
         VStack {
-            Text(songMemo.convertSongMemo())
+            Text(songMemo.regexedAttributedString())
                 .tint(.green)
             
             TextEditor(text: $songMemo)

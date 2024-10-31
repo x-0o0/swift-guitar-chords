@@ -70,8 +70,8 @@ struct ChordRegexTests {
     }
     
     @Test("코드 포함 텍스트 변환 테스트", arguments: SongMemo.allCases)
-    func convertSongMemo(_ songMemo: SongMemo) throws {
-        let attributedString = songMemo.rawText.convertSongMemo()
+    func regexedAttributedString(_ songMemo: SongMemo) throws {
+        let attributedString = songMemo.rawText.regexedAttributedString()
         
         /// 표출 문구
         #expect(String(attributedString.characters) == songMemo.displayedText)

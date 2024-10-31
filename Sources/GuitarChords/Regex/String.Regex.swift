@@ -8,7 +8,20 @@
 import Foundation
 
 extension String {
-    public func convertSongMemo() -> AttributedString {
+    /// ```swift
+    /// let text = """
+    /// {0_1_0_2_3_0-C} 잔잔한 당신{0_0_1_2_2_0-E}은
+    /// {1_1_2_3_3_1-F}이 맘을 넘치{0_1_0_2_3_0-C}게
+    /// 하지 않을거{0_1_0_2_0_0-Am7}야
+    /// """
+    /// print(text.regexedAttributedString())
+    /// // C 잔잔한 당신E은
+    /// // F이 맘을 넘치C게
+    /// // 하지 않을거Am7야
+    ///
+    /// // 🔗 각각의 코드는 `"guitarchord://{id}`의 링크 버튼
+    /// ```
+    public func regexedAttributedString() -> AttributedString {
         var attributedString = AttributedString(self)
         
         guard let regex = try? NSRegularExpression(pattern: Chord.pattern, options: []) else { return attributedString }
