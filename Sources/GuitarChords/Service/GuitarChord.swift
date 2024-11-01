@@ -1,9 +1,6 @@
-//
-//  GuitarChord.swift
-//  swift-guitar-chords
-//
-//  Created by 이재성 on 11/1/24.
-//
+/**
+ - Note: See the `License.txt` file for this licensing information.
+ */
 
 public final class GuitarChord {
     nonisolated(unsafe)
@@ -36,8 +33,8 @@ public final class GuitarChord {
         try service.unregisterCustomScope(named: scopeName)
     }
     
-    public static func addChord(rawText: String, to scope: GuitarChord.Scope) throws {
-        try service.addChord(rawText: rawText, to: scope)
+    public static func addChord(_ chord: Chord, to scope: GuitarChord.Scope) throws {
+        try service.addChord(chord, to: scope)
     }
     
     public static func deleteChord(byID id: String, from scope: GuitarChord.Scope) throws {

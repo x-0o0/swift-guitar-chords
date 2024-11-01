@@ -1,9 +1,6 @@
-//
-//  String.Regex.swift
-//  
-//
-//  Created by 이재성 on 10/19/24.
-//
+/**
+ - Note: See the `License.txt` file for this licensing information.
+ */
 
 import Foundation
 
