@@ -1,8 +1,6 @@
 # Guitar Chords
 
-| Light Mode | Dark Mode |
-| --- | --- |
-| ![1](https://github-production-user-asset-6210df.s3.amazonaws.com/53814741/372998579-076f331a-9df6-4193-b433-83354c659efd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241017T153741Z&X-Amz-Expires=300&X-Amz-Signature=8922ae8301f2f54f8b5ebd1e5c31383f457521571effb2ddde70aec39537576d&X-Amz-SignedHeaders=host) | ![2](https://github-production-user-asset-6210df.s3.amazonaws.com/53814741/372998631-7632ffab-87d8-4606-87b4-ffdb5f3e4288.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241017T154007Z&X-Amz-Expires=300&X-Amz-Signature=d540d60efa95bfe6e9b9ca2111c0f02619ce6e242d5830cd0de5602df6801cc2&X-Amz-SignedHeaders=host) |
+<img width="942" alt="스크린샷 2024-11-02 오전 1 59 48" src="https://github.com/user-attachments/assets/bf712ea7-7f85-4291-8dfd-52b103aff5d2">
 
 ## Overview
 
