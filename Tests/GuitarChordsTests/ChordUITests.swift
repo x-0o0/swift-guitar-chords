@@ -3,6 +3,7 @@ import Testing
 import GuitarChords
 
 @Suite("Chord UI 테스트")
+@MainActor
 struct ChordUITests {
     @Test("이미지 생성 테스트", arguments: [
         Chord(name: "C", fretString: "3_5_5_5_3_x"),

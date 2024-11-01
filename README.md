@@ -18,6 +18,26 @@ This package provides the models and the diagram images for guitar chords.
 import GuitarChords
 ```
 
+### Synchronizing
+
+```swift
+// Download json file to synchronize
+try await GuitarChord.synchronize()
+```
+After retrieving the chords from the remote database, updates local storage.
+
+### Searching Chords
+
+```swift
+// Case 1:
+let chords = GuitarChord.search(named: "Am")
+
+// Case 2:
+let chords = GuitarChord.search(fretString: "0_1_0_2_3_0")
+```
+
+### Handling `Chord`
+
 ```swift
 let c코드 = Chord(name: "C", fretString: "0_1_0_2_3_0")
 
@@ -30,8 +50,6 @@ var body: some View {
   }
 }
 ```
-
-## Features
 
 ### AttributedString
 
@@ -50,7 +68,34 @@ print(convertedText)
 // C잔잔한 당신E은 F이 맘을 넘치C게 하지 않을거Am7야
 // 그대로F도 편히 D7안길 수가 있으니G7까
 // """
+```
 
+## Managing Custom Chords
+
+### Custom Scope Registration
+
+```swift
+GuitarChord.registerCustomScope(named: "user.created")
+
+GuitarChord.unregisterCustomScope(named: "user.created")
+```
+
+### Fetching custom chords from the scope
+
+```swift
+let chords = GuitarChord.allChords(scopes: [.custom("user.created")])
+
+let chords = GuitarChord.search(named: "Am", scopes: [.custom("user.created")])
+
+let chords = GuitarChord.search(fretString: "0_1_0_2_3_0", scopes: [.custom("user.created")])
+```
+
+### Update scope with a custom chord
+
+```swift
+try GuitarChord.addChord(rawText: "myown-0_0_0_0_0_0",  to: .custom("user.created"))
+
+try GuitarChord.deleteChord(byID: "0_0_10_10_8_x", from: .custom("user.created"))
 ```
 
 ## Used Opened Sources 
