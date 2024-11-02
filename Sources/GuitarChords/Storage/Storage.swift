@@ -12,15 +12,17 @@ extension GuitarChord {
         
         private(set) var chords: Set<Chord>
         
-        init(scope: GuitarChord.Scope, fileURL: URL) throws {
+        init(scope: GuitarChord.Scope, intialChords: Set<Chord> = [], fileURL: URL) {
             self.scope = scope
             self.fileURL = fileURL
-            if let data = try? Data(contentsOf: fileURL) {
-                let syncChord = try JSONDecoder().decode(SyncChords.self, from: data)
-                self.chords = Set(syncChord.chords)
-            } else {
-                self.chords = []
-            } 
+            self.chords = []
+        }
+        
+        init(scope: GuitarChord.Scope, data: Data, fileURL: URL) throws {
+            self.scope = scope
+            self.fileURL = fileURL
+            let syncChord = try JSONDecoder().decode(SyncChords.self, from: data)
+            self.chords = Set(syncChord.chords)
         }
         
         func add(_ chord: Chord) throws {
