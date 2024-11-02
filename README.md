@@ -98,6 +98,12 @@ try GuitarChord.addChord(rawText: "myown-0_0_0_0_0_0",  to: .custom("user.create
 try GuitarChord.deleteChord(byID: "0_0_10_10_8_x", from: .custom("user.created"))
 ```
 
+## Github Actions
+
+| Action | Trigger | macOS | Xcode | iOS | Device |
+| --- | --- | --- | --- | --- | -- |
+| Build Package | `/🎼 패키지 빌드` | macOS 15 | Xcode16 | 18.0 | iPhone 16 Pro |
+
 ## Used Opened Sources 
 
 ### Swifty Chords
