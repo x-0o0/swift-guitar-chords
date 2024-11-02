@@ -16,7 +16,7 @@ This package provides the models and the diagram images for guitar chords.
 import GuitarChords
 
 try await GuitarChord.synchronize()
-GuitarChord.searchChord(fretString: "0_1_0_2_3_0")
+let c = GuitarChord.search(fretString: "0_1_0_2_3_0")
 ```
 
 ### Quickstart
@@ -107,9 +107,9 @@ let songMemo = """
 그대로{1_1_2_3_3_1-F}도 편히 {2_1_2_0_x_x-D7}안길 수가 있으니{1_0_0_0_2_3-G7}까
 """
 
-let convertedText = songMemo.convertSongMemo()
+let attributedText = songMemo.regexedAttributedString()
 
-print(convertedText)
+Text(attributedText)
 // """
 // C잔잔한 당신E은 F이 맘을 넘치C게 하지 않을거Am7야
 // 그대로F도 편히 D7안길 수가 있으니G7까
