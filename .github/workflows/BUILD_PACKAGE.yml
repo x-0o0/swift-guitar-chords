@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     if: github.event.issue.pull_request && contains(github.event.comment.body, '/🎼') && contains(github.event.comment.body, '패키지 빌드')
+    permissions: write-all
     runs-on: macos-14  #Xcode 버전
     steps:
       # 빌드 요청 시작
