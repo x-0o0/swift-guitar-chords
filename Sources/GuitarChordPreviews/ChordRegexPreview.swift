@@ -15,11 +15,20 @@ struct ChordRegexPreview: View {
     """
     
     var body: some View {
-        VStack {
-            Text(songMemo.regexedAttributedString())
-                .tint(.green)
+        List {
+            Section {
+                TextEditor(text: $songMemo)
+                    .frame(height: 200)
+            } header: {
+                Text("Raw Text")
+            }
             
-            TextEditor(text: $songMemo)
+            Section {
+                Text(songMemo.regexedAttributedString())
+                    .tint(.green)
+            } header: {
+                Text("Regexed")
+            }
         }
     }
     
