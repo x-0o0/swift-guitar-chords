@@ -103,6 +103,7 @@ try GuitarChord.deleteChord(byID: "0_0_10_10_8_x", from: .custom("user.created")
 | Action | Trigger | macOS | Xcode | iOS | Device |
 | --- | --- | --- | --- | --- | -- |
 | Build Package | `/🎼 패키지 빌드` | macOS 15 | Xcode16 | 18.0 | iPhone 16 Pro |
+| Test Package in iOS18 | `/🎼 패키지 테스트 -ios18` | macOS 15 | Xcode16 | 18.0 | iPhone 16 Pro |
 
 ## Used Opened Sources 
 
@@ -112,3 +113,7 @@ The below files use [Swifty Chords](https://github.com/BeauNouvelle/SwiftyGuitar
 - [LineConfig.swift](/Sources/GuitarChords/UI/LineConfig.swift)
 - [NSAttributedString.Extensions](/Sources/GuitarChords/Extensions/NSAttributedString.Extensions)
 - [String.Extensions](/Sources/GuitarChords/Extensions/String.Extensions)
+
+### xcbeaufity
+For GitHub Actions, [xcbeaufity](https://github.com/cpisciotta/xcbeautify) is used.
+- [GitHub Actions Workflows](/.github/workflows)
