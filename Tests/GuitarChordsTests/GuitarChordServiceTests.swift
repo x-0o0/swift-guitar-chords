@@ -23,10 +23,9 @@ struct GuitarChordServiceTests {
         
         let fileURL = folderURL.appendingPathComponent("chords.json")
         
-        let data = try Data(contentsOf: fileURL)
-        let syncChord = try JSONDecoder().decode(SyncChords.self, from: data)
-        print(syncChord.chords)
-        #expect(!syncChord.chords.isEmpty)
+        let serviceStorage = try #require(service.chordStorage[.service])
+        #expect(serviceStorage.fileURL == fileURL)
+        #expect(!serviceStorage.chords.isEmpty)
     }
     
     @Test("커스텀 Scope 등록 테스트", arguments: [

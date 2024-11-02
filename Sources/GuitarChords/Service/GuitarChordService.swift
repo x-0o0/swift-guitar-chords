@@ -43,7 +43,7 @@ public class GuitarChordService {
         self.serviceURL = fileURL
         
         let chordStorage = try GuitarChord.Storage(
-            scope: .service, fileURL: fileURL
+            scope: .service, data: data, fileURL: fileURL
         )
         self.chordStorage.updateValue(chordStorage, forKey: .service)
     }
@@ -151,7 +151,7 @@ public class GuitarChordService {
         if let storage = chordStorage[scope] {
             try storage.add(chord)
         } else {
-            let storage = try GuitarChord.Storage(scope: scope, fileURL: fileURL)
+            let storage = GuitarChord.Storage(scope: scope, fileURL: fileURL)
             try storage.add(chord)
             chordStorage.updateValue(storage, forKey: scope)
         }
