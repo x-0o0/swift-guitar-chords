@@ -14,7 +14,53 @@ This package provides the models and the diagram images for guitar chords.
 
 ```swift
 import GuitarChords
+
+try await GuitarChord.synchronize()
+GuitarChord.searchChord(fretString: "0_1_0_2_3_0")
 ```
+
+### Quickstart
+
+```swift
+import SwiftUI
+import GuitarChords
+
+struct ChordList: View {
+    @State private var chords: [Chord] = []
+
+    private let imageRect = CGRect(origin: .zero, size: CGSize(width: 90, height: 90))
+
+    var body: some View {
+        NavigationStack {
+            List(chords, id: \.self.rawText) { chord in
+                Section {
+                    if let image = chord.image(rect: imageRect) {
+                        image
+                    }
+                    Text(chord.name)
+                        .font(.headline)
+                }
+            }
+            .navigationTitle("Guitar Chords")
+            .overlay {
+                if chords.isEmpty {
+                    ContentUnavailableView(
+                        "Synchronizing...",
+                        systemImage: "arrow.triangle.2.circlepath.icloud.fill",
+                        description: Text("It will be completed soon")
+                    )
+                }
+            }
+        }
+        .task {
+            try? await GuitarChord.synchronize()
+            chords = GuitarChord.allChords()
+        }
+    }
+}
+```
+
+## Features
 
 ### Synchronizing
 
