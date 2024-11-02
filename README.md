@@ -1,5 +1,7 @@
 # Guitar Chords
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/x-0o0/swift-guitar-chords&count_bg=%23000000&title_bg=%23555555&icon=swift.svg&icon_color=%23FFFFFF&title=Views&edge_flat=true)](https://hits.seeyoufarm.com)
+
 <img width="942" alt="스크린샷 2024-11-02 오전 1 59 48" src="https://github.com/user-attachments/assets/bf712ea7-7f85-4291-8dfd-52b103aff5d2">
 
 ## Overview
