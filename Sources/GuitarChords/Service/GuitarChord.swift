@@ -2,9 +2,24 @@
  - Note: See the `License.txt` file for this licensing information.
  */
 
+import Foundation
+
 public final class GuitarChord {
     nonisolated(unsafe)
     private(set) static var service: GuitarChordService = GuitarChordService()
+    
+    /// The URL that all guitar chords are stored
+    /// - NOTE: Should call ``GuitarChordService/synchronize`` to set value.
+    public static var serviceURL: URL? {
+        service.serviceURL
+    }
+    /// The custom scopes to store the chords.
+    /// | String | URL |
+    /// | --- | --- |
+    /// | `registerCustomScope(named:)` 에서의 파라미터 값 | 파일 저장소 경로 |
+    public static var customScopes: [String: URL] {
+        service.customScopes
+    }
     
     // MARK: - 동기화
     public static func synchronize() async throws {
